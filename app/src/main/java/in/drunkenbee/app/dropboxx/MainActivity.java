@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                         fthome.replace(R.id.fragment_holder, fragment);
                         fthome.commit();
                         break;
-                    case 1: fragment = new Tiffin();
+                    case 1: fragment = new Category();
                         android.support.v4.app.FragmentTransaction fttiffin = fragmentManager.beginTransaction();
                         fttiffin.replace(R.id.fragment_holder, fragment);
                         fttiffin.commit();

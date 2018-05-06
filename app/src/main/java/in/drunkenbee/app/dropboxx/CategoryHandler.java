@@ -40,7 +40,7 @@ public class CategoryHandler {
 
                     int responseCode = result.getInt("responseCode");
                     JSONObject responseMsg = result.getJSONObject("responseMsg");
-                    JSONArray categoryList = result.getJSONArray("catgory_list");
+                    JSONArray categoryList = responseMsg.getJSONArray("category_list");
 
                     for (int i = 0; i < categoryList.length(); i++){
 
@@ -48,7 +48,7 @@ public class CategoryHandler {
                         ArrayList<ProductAdapter> parsedProductList = new ArrayList<ProductAdapter>();
                         JSONObject category = categoryList.getJSONObject(i);
 
-                        categoryAdapter.setCategoryId(category.getInt("category_id"));
+                        categoryAdapter.setCategoryId(category.getInt("master_category_id"));
                         categoryAdapter.setCategoryName(category.getString("category_name"));
                         categoryAdapter.setCategoryImage(category.getString("category_image"));
 
@@ -59,7 +59,7 @@ public class CategoryHandler {
                             ProductAdapter productAdapter = new ProductAdapter();
                             JSONObject product = productList.getJSONObject(j);
 
-                            productAdapter.setProductId(product.getInt("product_id"));
+                            productAdapter.setProductId(product.getInt("master_product_id"));
                             productAdapter.setProductName(product.getString("product_name"));
                             productAdapter.setProductDescription(product.getString("product_description"));
                             productAdapter.setProductImage(product.getString("product_image"));
