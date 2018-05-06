@@ -2,13 +2,135 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?android:windowBackground"
     tools:context="in.drunkenbee.app.dropboxx.Tiffin">
 
+
+
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="TIFFIN FRAGMENT" />
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose Your Tiffin Plan"
+                android:textColor="@color/colorPrimary"/>
+
+            <co.ceryle.radiorealbutton.RadioRealButtonGroup
+                android:id="@+id/foodType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:rrbg_animateDrawables_enter="overshoot"
+                app:rrbg_animateTexts_enter="overshoot"
+                app:rrbg_checkedPosition="0"
+                app:rrbg_dividerColor="@color/black"
+                app:rrbg_dividerSize="1dp"
+                app:rrbg_radius="2dp"
+                app:rrbg_selectorColor="@color/colorPrimary"
+                app:rrbg_backgroundColor="@color/colorPrimary"
+                app:rrbg_selectorSize="6dp">
+
+                <co.ceryle.radiorealbutton.RadioRealButton
+                    android:id="@+id/veg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:rrb_drawable="@drawable/ic_tiffin_calender7"
+                    app:rrb_drawableHeight="36dp"
+                    app:rrb_drawablePadding="8dp"
+                    app:rrb_drawableWidth="36dp"
+                    app:rrb_ripple="true"
+                    app:rrb_rippleColor="@color/colorPrimary" />
+
+                <co.ceryle.radiorealbutton.RadioRealButton
+                    android:id="@+id/nonveg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:rrb_drawable="@drawable/ic_tiffin_calender7"
+                    app:rrb_drawableGravity="right"
+                    app:rrb_drawableHeight="36dp"
+                    app:rrb_drawablePadding="8dp"
+                    app:rrb_drawableWidth="36dp"
+                    app:rrb_ripple="true"
+                    app:rrb_rippleColor="@color/colorPrimary" />
+            </co.ceryle.radiorealbutton.RadioRealButtonGroup>
+
+
+            <co.ceryle.radiorealbutton.RadioRealButtonGroup
+                app:rrbg_backgroundColor="@color/colorPrimary"
+                android:id="@+id/tiffinPlan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/foodType"
+                android:layout_margin="8dp"
+                app:rrbg_animateDrawables_enter="overshoot"
+                app:rrbg_animateTexts_enter="overshoot"
+                app:rrbg_checkedPosition="0"
+                app:rrbg_dividerColor="@color/black"
+                app:rrbg_dividerSize="1dp"
+                app:rrbg_radius="2dp"
+                app:rrbg_selectorColor="@color/colorPrimary"
+                app:rrbg_selectorSize="1dp">
+
+                <co.ceryle.radiorealbutton.RadioRealButton
+                    android:id="@+id/week"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:rrb_drawable="@drawable/ic_tiffin_calender7"
+                    app:rrb_drawableHeight="36dp"
+                    app:rrb_drawablePadding="8dp"
+                    app:rrb_drawableWidth="36dp"
+                    app:rrb_ripple="true"
+                    app:rrb_rippleColor="@color/colorPrimary" />
+
+                <co.ceryle.radiorealbutton.RadioRealButton
+                    android:id="@+id/month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    app:rrb_drawable="@drawable/ic_tiffin_calender26"
+                    app:rrb_drawableGravity="right"
+                    app:rrb_drawableHeight="36dp"
+                    app:rrb_drawablePadding="8dp"
+                    app:rrb_drawableWidth="36dp"
+                    app:rrb_ripple="true"
+                    app:rrb_rippleColor="@color/colorPrimary" />
+            </co.ceryle.radiorealbutton.RadioRealButtonGroup>
+
+            <com.yarolegovich.discretescrollview.DiscreteScrollView
+                android:id="@+id/picker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Price"
+                    android:textColor="@color/lightGrey"/>
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
 
 </FrameLayout>

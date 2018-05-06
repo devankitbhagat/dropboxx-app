@@ -2,13 +2,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?android:windowBackground"
     tools:context="in.drunkenbee.app.dropboxx.Home">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="HOME FRAGMENT"/>
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <!-- TODO: Update blank fragment layout -->
+
+
+
+                <ss.com.bannerslider.Slider
+                    android:id="@+id/banner_slider"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:slider_animateIndicators="true"
+                    app:slider_loopSlides="true"
+                    app:slider_interval="5000"
+                    />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/combo_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
 
 </FrameLayout>

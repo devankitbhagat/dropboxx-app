@@ -6,7 +6,7 @@ package in.drunkenbee.app.dropboxx;
 
 public class AppConfig {
 
-    private static String BASE_URL = "http://drunkenbee.in/DROPBOXX/TEST/rest.php?applicationKey=12345&";
+    private static String BASE_URL = "http://192.168.43.57/dropboxx/rest.php?applicationKey=12345&";
 
     public static final int STATUS_OK = 1;
     public static final int LOGIN_TYPE_UUID = 2;
@@ -19,6 +19,9 @@ public class AppConfig {
 
     //method names
     private static String LOGIN_METHOD_NAME = "user.login";
+    private static final String TIFFIN_OPTION_METHOD_NAME = "tiffin.getOption";
+    private static final String COMBO_LIST_METHOD_NAME = "combo.getList";
+    private static final String CATEGORY_LIST_METHOD_NAME = "product.getList";
 
     public  static String getBaseUrl(){
         return BASE_URL;
@@ -27,5 +30,16 @@ public class AppConfig {
     public static String getLoginUrl(){return BASE_URL+"methodName="+LOGIN_METHOD_NAME;}
 
 
+    public static String tiffinOptionUrl() {
+        return BASE_URL+"methodName="+TIFFIN_OPTION_METHOD_NAME;
+    }
+
+    public static String comboListUrl() {
+        return BASE_URL+"methodName="+COMBO_LIST_METHOD_NAME;
+    }
+
+    public static String categoryListUrl() {
+        return BASE_URL+"methodName="+CATEGORY_LIST_METHOD_NAME;
+    }
 }
 
