@@ -19,6 +19,9 @@
         android:layout_gravity="bottom"
         android:id="@+id/bottom_navigation_bar"
         android:layout_width="match_parent"
+        app:bnbMode="mode_fixed"
+        app:bnbActiveColor="@color/font"
+        app:bnbInactiveColor="#9e9e9e"
         android:layout_height="wrap_content"/>
 
 </android.support.design.widget.CoordinatorLayout>

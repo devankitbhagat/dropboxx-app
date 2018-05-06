@@ -24,12 +24,12 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationBar bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
 
         bottomNavigationBar
-                .addItem(new BottomNavigationItem(R.drawable.home, "Home"))
-                .addItem(new BottomNavigationItem(R.drawable.tiffin, "Tiffin"))
-                .addItem(new BottomNavigationItem(R.drawable.order, "Order"))
-                .addItem(new BottomNavigationItem(R.drawable.cart, "Cart"))
-                .setActiveColor("#FFFFFF")
-                .setBarBackgroundColor(R.color.colorPrimary)
+                .addItem(new BottomNavigationItem(R.drawable.ic_nav_home, "Home"))
+                .addItem(new BottomNavigationItem(R.drawable.ic_nav_tiffin, "Category"))
+                .addItem(new BottomNavigationItem(R.drawable.ic_nav_orderstatus, "Order"))
+                .addItem(new BottomNavigationItem(R.drawable.ic_nav_cart, "Cart"))
+                .setActiveColor(R.color.font)
+                .setBarBackgroundColor(R.color.bottom_nav_bg)
                 .initialise();
 
         bottomNavigationBar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener(){

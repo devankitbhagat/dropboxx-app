@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#d32f2f</color>
+    <color name="colorPrimary">#ea4753</color>
     <color name="colorPrimaryDark">#9a0007</color>
     <color name="colorAccent">#FF4081</color>
     <color name="black">#000000</color>
     <color name="lightGrey">#D3D3D3</color>
+    <color name="darkGrey">#D3D3D3</color> <!--color need to be checked -->
+    <color name="font">#4d4d4d</color>
+    <color name="bottom_nav_bg">#e6e6e6</color>
 </resources>

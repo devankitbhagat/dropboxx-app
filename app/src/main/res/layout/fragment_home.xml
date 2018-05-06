@@ -9,30 +9,67 @@
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#ffffff">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:orientation="vertical">
         <!-- TODO: Update blank fragment layout -->
 
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                card_view:cardCornerRadius="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                card_view:cardElevation="5dp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent">
 
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <ss.com.bannerslider.Slider
-                    android:id="@+id/banner_slider"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    app:slider_animateIndicators="true"
-                    app:slider_loopSlides="true"
-                    app:slider_interval="5000"
-                    />
+                    <ss.com.bannerslider.Slider
+                        android:id="@+id/banner_slider"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        app:slider_animateIndicators="true"
+                        app:slider_loopSlides="true"
+                        app:slider_interval="5000" />
+                </LinearLayout>-->
+                </android.support.v7.widget.CardView>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Today's Combo Meal"
+                android:layout_marginStart="15dp"
+                android:textSize="18sp"
+                android:textColor="@color/font"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 Items"
+                android:layout_marginStart="12dp"
+                android:textSize="13sp"
+                android:textColor="#9e9e9e"
+                android:textStyle="bold" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/combo_recycler"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     >
 
                 </android.support.v7.widget.RecyclerView>
