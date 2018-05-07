@@ -3,6 +3,7 @@ package in.drunkenbee.app.dropboxx;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,6 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.yarolegovich.discretescrollview.DiscreteScrollView;
+import com.yarolegovich.discretescrollview.InfiniteScrollAdapter;
+import com.yarolegovich.discretescrollview.transform.Pivot;
+import com.yarolegovich.discretescrollview.transform.ScaleTransformer;
 
 import java.util.ArrayList;
 
@@ -20,6 +26,8 @@ public class Home extends Fragment {
 
     private RecyclerView comboRecyclerView;
     private ComboRecyclerAdapter comboRecyclerAdapter;
+    CategoryRecyclerAdapter categoryRecyclerAdapter;
+    DiscreteScrollView scrollView;
     private Slider slider;
 
     public Home(){
@@ -35,6 +43,7 @@ public class Home extends Fragment {
         Slider.init(new BannerImageLoadingService(getActivity()));
         comboRecyclerView = view.findViewById(R.id.combo_recycler);
         slider = view.findViewById(R.id.banner_slider);
+        scrollView = view.findViewById(R.id.category_recycler);
 
         ComboHandler comboHandler = new ComboHandler(getActivity());
         comboHandler.getComboList(new ComboHandlerCallback() {
@@ -64,6 +73,35 @@ public class Home extends Fragment {
                 Toast.makeText(getActivity(), "ERROR:"+error, Toast.LENGTH_LONG).show();
             }
         });
+
+        CategoryHandler categoryHandler = new CategoryHandler(getActivity());
+
+        categoryHandler.getCategoryList(new CategoryHandlerCallback() {
+            @Override
+            public void onCategoryListAvailable(ArrayList<CategoryAdapter> list) {
+                Toast.makeText(getActivity(), list.get(0).getCategoryName(), Toast.LENGTH_LONG).show();
+
+                categoryRecyclerAdapter = new CategoryRecyclerAdapter(getActivity(), list);
+
+                InfiniteScrollAdapter wrapper = InfiniteScrollAdapter.wrap(categoryRecyclerAdapter);
+
+                scrollView.setItemTransformer(new ScaleTransformer.Builder()
+                        .setMaxScale(1.05f)
+                        .setMinScale(0.8f)
+                        .setPivotX(Pivot.X.CENTER) // CENTER is a default one
+                        .setPivotY(Pivot.Y.BOTTOM) // CENTER is a default one
+                        .build());
+
+                scrollView.setAdapter(wrapper);
+
+            }
+
+            @Override
+            public void onCategoryListError(String error) {
+                Toast.makeText(getActivity(), "ERROR: "+ error, Toast.LENGTH_LONG).show();
+            }
+        });
+
         return view;
     }
 
