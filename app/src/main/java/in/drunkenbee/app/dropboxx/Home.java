@@ -27,7 +27,7 @@ public class Home extends Fragment {
     private RecyclerView comboRecyclerView;
     private ComboRecyclerAdapter comboRecyclerAdapter;
     CategoryRecyclerAdapter categoryRecyclerAdapter;
-    DiscreteScrollView scrollView;
+    private RecyclerView categoryRecyclerView;
     private Slider slider;
 
     public Home(){
@@ -43,7 +43,7 @@ public class Home extends Fragment {
         Slider.init(new BannerImageLoadingService(getActivity()));
         comboRecyclerView = view.findViewById(R.id.combo_recycler);
         slider = view.findViewById(R.id.banner_slider);
-        scrollView = view.findViewById(R.id.category_recycler);
+        categoryRecyclerView = view.findViewById(R.id.category_recycler);
 
         ComboHandler comboHandler = new ComboHandler(getActivity());
         comboHandler.getComboList(new ComboHandlerCallback() {
@@ -83,16 +83,13 @@ public class Home extends Fragment {
 
                 categoryRecyclerAdapter = new CategoryRecyclerAdapter(getActivity(), list);
 
-                InfiniteScrollAdapter wrapper = InfiniteScrollAdapter.wrap(categoryRecyclerAdapter);
+                LinearLayoutManager layoutManager
+                        = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
 
-                scrollView.setItemTransformer(new ScaleTransformer.Builder()
-                        .setMaxScale(1.05f)
-                        .setMinScale(0.8f)
-                        .setPivotX(Pivot.X.CENTER) // CENTER is a default one
-                        .setPivotY(Pivot.Y.BOTTOM) // CENTER is a default one
-                        .build());
-
-                scrollView.setAdapter(wrapper);
+                categoryRecyclerView.setNestedScrollingEnabled(false);
+                categoryRecyclerView.setLayoutManager(layoutManager);
+                categoryRecyclerView.setItemAnimator(new DefaultItemAnimator());
+                categoryRecyclerView.setAdapter(categoryRecyclerAdapter);
 
             }
 

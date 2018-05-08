@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationBar
                 .addItem(new BottomNavigationItem(R.drawable.ic_nav_home, "Home"))
-                .addItem(new BottomNavigationItem(R.drawable.ic_nav_tiffin, "Category"))
+                .addItem(new BottomNavigationItem(R.drawable.ic_nav_home, "Category"))
                 .addItem(new BottomNavigationItem(R.drawable.ic_nav_orderstatus, "Order"))
                 .addItem(new BottomNavigationItem(R.drawable.ic_nav_cart, "Cart"))
                 .setActiveColor(R.color.font)

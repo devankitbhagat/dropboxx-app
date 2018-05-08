@@ -76,5 +76,6 @@ public class ComboRecyclerAdapter extends RecyclerView.Adapter<ComboRecyclerAdap
             comboImage = itemView.findViewById(R.id.combo_image);
 
         }
+
     }
 }
