@@ -22,6 +22,7 @@ public class AppConfig {
     private static final String TIFFIN_OPTION_METHOD_NAME = "tiffin.getOption";
     private static final String COMBO_LIST_METHOD_NAME = "combo.getList";
     private static final String CATEGORY_LIST_METHOD_NAME = "product.getList";
+    private static final String CART_URL = "order.save";
 
     public  static String getBaseUrl(){
         return BASE_URL;
@@ -40,6 +41,10 @@ public class AppConfig {
 
     public static String categoryListUrl() {
         return BASE_URL+"methodName="+CATEGORY_LIST_METHOD_NAME;
+    }
+
+    public static String cartUrl() {
+        return BASE_URL+"methodName="+CART_URL;
     }
 }
 
