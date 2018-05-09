@@ -52,7 +52,7 @@ public class ComboRecyclerAdapter extends RecyclerView.Adapter<ComboRecyclerAdap
 
         holder.comboName.setText(combolist.get(position).getComboName());
         holder.comboDescription.setText(combolist.get(position).getComboDescription());
-        holder.comboPrice.setText("Rs "+combolist.get(position).getComboPrice());
+        holder.comboPrice.setText("₹" +combolist.get(position).getComboPrice());
         holder.comboImage.setImageUrl(combolist.get(position).getComboImage(), mImageLoader);
     }
 
