@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationBar
                 .addItem(new BottomNavigationItem(R.drawable.ic_nav_home, "Home"))
-                .addItem(new BottomNavigationItem(R.drawable.ic_nav_home, "Category"))
                 .addItem(new BottomNavigationItem(R.drawable.ic_nav_orderstatus, "Order"))
                 .addItem(new BottomNavigationItem(R.drawable.ic_nav_cart, "Cart"))
+                .addItem(new BottomNavigationItem(R.drawable.ic_nav_profile, "Profile"))
                 .setActiveColor(R.color.font)
                 .setBarBackgroundColor(R.color.bottom_nav_bg)
                 .initialise();
@@ -46,22 +46,22 @@ public class MainActivity extends AppCompatActivity {
                         fthome.replace(R.id.fragment_holder, fragment);
                         fthome.commit();
                         break;
-                    case 1: fragment = new Category();
-                        android.support.v4.app.FragmentTransaction fttiffin = fragmentManager.beginTransaction();
-                        fttiffin.replace(R.id.fragment_holder, fragment);
-                        fttiffin.commit();
-                        break;
 
-                    case 2: fragment = new Order();
+                    case 1: fragment = new Order();
                         android.support.v4.app.FragmentTransaction ftorder = fragmentManager.beginTransaction();
                         ftorder.replace(R.id.fragment_holder, fragment);
                         ftorder.commit();
                         break;
 
-                    case 3: fragment = new Cart();
+                    case 2: fragment = new Cart();
                         android.support.v4.app.FragmentTransaction ftcart = fragmentManager.beginTransaction();
                         ftcart.replace(R.id.fragment_holder, fragment);
                         ftcart.commit();
+                        break;
+                    case 3: fragment = new Category();
+                        android.support.v4.app.FragmentTransaction fttiffin = fragmentManager.beginTransaction();
+                        fttiffin.replace(R.id.fragment_holder, fragment);
+                        fttiffin.commit();
                         break;
                 }
             }

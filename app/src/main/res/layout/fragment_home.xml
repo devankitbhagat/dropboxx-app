@@ -59,6 +59,11 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/category_recycler"
                 android:layout_width="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingLeft="15dp"
+                android:paddingEnd="15dp"
+                android:paddingRight="15dp"
+                android:clipToPadding="false"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content" />
 
