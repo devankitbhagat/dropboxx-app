@@ -1,12 +1,14 @@
 package in.drunkenbee.app.dropboxx;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
@@ -45,10 +47,16 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
     }
 
     @Override
-    public void onBindViewHolder(CategoryRecyclerAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(CategoryRecyclerAdapter.MyViewHolder holder, final int position) {
 
         holder.categoryName.setText(list.get(position).getCategoryName());
         holder.categoryImage.setImageUrl(list.get(position).getCategoryImage(), mImageLoader);
+        holder.categoryCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,"POSITION "+position, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
@@ -60,12 +68,14 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
 
         NetworkImageView categoryImage;
         TextView categoryName;
+        CardView categoryCardView;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
             categoryImage = itemView.findViewById(R.id.category_image);
             categoryName = itemView.findViewById(R.id.category_name);
+            categoryCardView = itemView.findViewById(R.id.category_cardView);
 
         }
     }

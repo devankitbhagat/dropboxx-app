@@ -86,6 +86,7 @@
                     android:layout_gravity="end"
                     android:background="@drawable/rounded_button"
                     android:text="Add to Cart"
+                    android:id="@+id/combo_order"
                     android:layout_marginBottom="10dp"
                     android:textAppearance="@style/TextAppearance.AppCompat"
                     android:textColor="@android:color/white" />
