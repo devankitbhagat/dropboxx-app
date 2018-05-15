@@ -6,7 +6,7 @@ package in.drunkenbee.app.dropboxx;
 
 public class AppConfig {
 
-    private static String BASE_URL = "http://drunkenbee.in/DROPBOXX/TEST//rest.php?applicationKey=12345&";
+    private static String BASE_URL = "http://drunkenbee.in/DROPBOXX/TEST/rest.php?applicationKey=12345&";
 
     public static final int STATUS_OK = 1;
     public static final int LOGIN_TYPE_UUID = 2;

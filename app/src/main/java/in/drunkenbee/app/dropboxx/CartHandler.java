@@ -1,6 +1,8 @@
 package in.drunkenbee.app.dropboxx;
 
 import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 
@@ -28,7 +30,7 @@ public class CartHandler {
         UserPref userPref = new UserPref(context);
         String userId = userPref.getUserId();
         String accessToken = userPref.getUserAccessToken();
-
+        Toast.makeText(context, "USER ID"+userId, Toast.LENGTH_LONG).show();
         String cartUrl = AppConfig.cartUrl()+"&user_id="+userId+"&access_token="+accessToken;
 
         Communicator communicator = new Communicator(context, cartUrl);
@@ -37,14 +39,13 @@ public class CartHandler {
             public void onSuccess(JSONObject result) {
 
                 try {
-
                     int responseCode = result.getInt("responseCode");
 
                     if(responseCode == AppConfig.STATUS_OK){
 
                         JSONObject responseMsg = result.getJSONObject("responseMsg");
                         JSONArray orderList = responseMsg.getJSONArray("order_list");
-
+                        Toast.makeText(context, "CALLED", Toast.LENGTH_LONG).show();
                         ArrayList<CartProductAdapter> cartProductList = new ArrayList<CartProductAdapter>();
                         for (int i = 0; i < orderList.length(); i++ ){
 
@@ -64,10 +65,10 @@ public class CartHandler {
 
                         CartAdapter cartAdapter = new CartAdapter();
 
-                        cartAdapter.setOrderId(responseMsg.getInt("order_id"));
+                        cartAdapter.setOrderId(responseMsg.getInt("user_order_id"));
                         cartAdapter.setFinalPay(responseMsg.getDouble("total_pay"));
                         cartAdapter.setCartProductList(cartProductList);
-
+//                        Log.e("DATA", String.valueOf(responseMsg.getInt("user_order_id")));
                         callback.onCartAvailable(cartAdapter);
                     }
 
