@@ -1,6 +1,10 @@
 package in.drunkenbee.app.dropboxx;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -54,6 +58,21 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
         holder.categoryCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                android.support.v4.app.Fragment fragment;
+                android.support.v4.app.FragmentManager fragmentManager = ((AppCompatActivity)context).getSupportFragmentManager();
+
+                fragment = new Product();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("product", list.get(position).getCategoryProductList());
+
+                android.support.v4.app.FragmentTransaction ftproduct = fragmentManager.beginTransaction();
+                fragment.setArguments(bundle);
+                ftproduct.replace(R.id.fragment_holder, fragment);
+                ftproduct.addToBackStack("productScreen");
+                ftproduct.commit();
+
+
                 Toast.makeText(context,"POSITION "+position, Toast.LENGTH_LONG).show();
             }
         });

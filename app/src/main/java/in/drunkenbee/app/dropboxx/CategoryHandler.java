@@ -63,6 +63,7 @@ public class CategoryHandler {
                             productAdapter.setProductName(product.getString("product_name"));
                             productAdapter.setProductDescription(product.getString("product_description"));
                             productAdapter.setProductImage(product.getString("product_image"));
+                            productAdapter.setProductPrice(product.getDouble("product_price"));
 
                             parsedProductList.add(productAdapter);
 

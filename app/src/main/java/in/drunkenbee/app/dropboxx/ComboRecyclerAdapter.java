@@ -34,6 +34,7 @@ public class ComboRecyclerAdapter extends RecyclerView.Adapter<ComboRecyclerAdap
     private ImageLoader mImageLoader;
 
     public ComboRecyclerAdapter(Context context, ArrayList<ComboAdapter> combolist){
+        this.context = context;
         inflater = LayoutInflater.from(context);
         this.combolist = combolist;
 
@@ -83,14 +84,32 @@ public class ComboRecyclerAdapter extends RecyclerView.Adapter<ComboRecyclerAdap
             comboOrder.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    AddToCart(combolist.get(getAdapterPosition()).getComboId());
                     Toast.makeText(itemView.getContext(), "Order "+getAdapterPosition(), Toast.LENGTH_SHORT).show();
                     view.setBackgroundColor(Color.parseColor("#388e3c"));
-                    comboOrder.setText("Cancel");
+                    comboOrder.setText("Added to cart");
                 }
             });
 
 
         }
 
+    }
+
+    public void AddToCart(int comboId){
+        SaveOrderHandler saveOrderHandler = new SaveOrderHandler(context);
+
+        saveOrderHandler.saveCombo(comboId, new SaveOrderCallback() {
+            @Override
+            public void onOrderSave(String msg) {
+                Toast.makeText(context, "Combo added to the cart", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(String error) {
+                Toast.makeText(context, "Couldn't add it to the cart", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 }

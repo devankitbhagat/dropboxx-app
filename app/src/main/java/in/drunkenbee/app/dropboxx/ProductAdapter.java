@@ -10,6 +10,7 @@ public class ProductAdapter {
     private String productName;
     private String productDescription;
     private String productImage;
+    private double productPrice;
 
     public void setProductId(int productId) {
         this.productId = productId;
@@ -17,6 +18,14 @@ public class ProductAdapter {
 
     public int getProductId() {
         return productId;
+    }
+
+    public  void setProductPrice(double productPrice){
+        this.productPrice = productPrice;
+    }
+
+    public double getProductPrice() {
+        return productPrice;
     }
 
     public void setProductName(String productName) {
