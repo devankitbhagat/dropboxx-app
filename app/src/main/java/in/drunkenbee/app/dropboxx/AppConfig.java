@@ -23,6 +23,10 @@ public class AppConfig {
     private static final String COMBO_LIST_METHOD_NAME = "combo.getList";
     private static final String CATEGORY_LIST_METHOD_NAME = "product.getList";
     private static final String CART_URL = "order.save";
+    private static final String ADDRESS_LIST_METHOD = "user.getAddressList";
+    private static final String ADDRESS_SAVE_METHOD = "user.addAddress";
+    private static final String ADDRESS_MODIFY_METHOD = "user.modifyAddress";
+    private static final String ORDER_HISTORY_METHOD = "order.getHistory";
 
     public  static String getBaseUrl(){
         return BASE_URL;
@@ -45,6 +49,22 @@ public class AppConfig {
 
     public static String cartUrl() {
         return BASE_URL+"methodName="+CART_URL;
+    }
+
+    public static String getAddressListUrl() {
+        return BASE_URL+"methodName="+ADDRESS_LIST_METHOD;
+    }
+
+    public static String getAddressSaveUrl() {
+        return BASE_URL+"methodName="+ADDRESS_SAVE_METHOD;
+    }
+
+    public static String getAddressModifyUrl(){
+        return BASE_URL+"methodName="+ADDRESS_MODIFY_METHOD;
+    }
+
+    public static String getOrderHistoryUrl(){
+        return BASE_URL+"methodName="+ORDER_HISTORY_METHOD;
     }
 }
 
